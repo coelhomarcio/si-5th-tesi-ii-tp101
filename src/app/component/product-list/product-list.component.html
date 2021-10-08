@@ -1,0 +1,14 @@
+<main class="c-white flex center-x">
+	<section class="bg-black flex-c gap16">
+		<h2>Products</h2>
+		<div class="flex-c start-y gap8" *ngFor="let product of products">
+			<mat-divider class="w100 bg-grey"></mat-divider>
+			<h3><a [title]="product.name + ' details'">{{ product.name }}</a></h3>
+			<p *ngIf="product.description">Description: {{ product.description }}</p>
+			<div class="flex-c start-y gap12">
+				<button class="btn" (click)="share()">Share</button>
+				<app-product-alerts [product]="product" (notify)="onNotify()"></app-product-alerts>
+			</div>
+		</div>
+	</section>
+</main>
